@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPA s.c. Elektryk Katowice - Pogotowie i Usługi Elektryczne</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: #333; background-color: #f9f9f9; line-height: 1.6; }
+        header { background-color: #ffffff; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #002244; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        
+        .logo-link { display: block; text-decoration: none; cursor: pointer; }
+        .logo-img { height: 75px; width: auto; display: block; }
+        
+        nav a { color: #002244; text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 17px; }
+        nav a:hover { color: #d90000; }
+        .hero { position: relative; background-image: url('rozdzielnica.jpg'); background-size: cover; background-position: center; color: #fff; padding: 60px 50px; text-align: center; border-bottom: 5px solid #ffcc00; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; }
+        .hero h1 { font-size: 52px; margin-bottom: 5px; text-shadow: 3px 3px 10px rgba(0,0,0,0.95); font-weight: normal; }
+        .hero .company-type { font-size: 20px; color: #ccc; margin-bottom: 25px; }
+        .hero p { font-size: 22px; text-shadow: 2px 2px 8px rgba(0,0,0,0.95); color: #f0f0f0; }
+        
+        .section-title { text-align: center; font-size: 36px; margin: 40px auto 10px; color: #002244; font-weight: bold; }
+        .section-title::after { content: ''; display: block; width: 45px; height: 4px; background-color: #d90000; margin: 15px auto 0; }
+        
+        .about { padding: 40px 50px; max-width: 1000px; margin: 0 auto; text-align: center; font-size: 19px; color: #444; }
+        .about-line { margin-bottom: 15px; display: block; }
+        .about-line:last-child { margin-bottom: 0; }
+
+        .services-portal { background-color: #ffffff; padding: 60px 50px; }
+        .services-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        
+        .service-box { border: 1px solid #eef1f5; border-radius: 6px; padding: 40px 35px; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.02); display: flex; flex-direction: column; justify-content: flex-start; text-align: left; }
+        .service-box h3 { font-size: 22px; color: #002244; margin-bottom: 15px; font-weight: bold; }
+        .service-box p { color: #777; font-size: 15px; margin-bottom: 25px; line-height: 1.7; flex-grow: 1; }
+        .service-box a { color: #d90000; text-decoration: none; font-weight: bold; font-size: 15px; display: inline-block; letter-spacing: 0.5px; }
+        
+        .faq { padding: 60px 50px; }
+        .faq-container { max-width: 850px; margin: 0 auto; }
+        .faq-item { background: #fff; margin-bottom: 15px; border-radius: 8px; padding: 25px; border: 1px solid #eee; }
+        .faq-item h3 { font-size: 19px; color: #002244; margin-bottom: 10px; }
+        
+        .contact-portal { background-color: #1a1a1a; color: #fff; padding: 60px 50px; }
+        .contact-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        .info-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 8px; font-size: 18px; margin-top: 20px; }
+        .info-card a { color: #ffcc00; text-decoration: none; font-weight: bold; }
+        .contact-form { background: #fff; padding: 30px; border-radius: 8px; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .form-btn { width: 100%; background: #002244; color: #fff; border: none; padding: 12px; font-weight: bold; border-radius: 4px; cursor: pointer; }
+        footer { background-color: #111; color: #777; text-align: center; padding: 20px; font-size: 14px; }
+
+        @media (max-width: 992px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 20px; text-align: center; }
+            nav { margin-top: 20px; }
+            nav a { margin: 0 10px; }
+            .hero h1 { font-size: 36px; }
+            .hero .company-type { font-size: 16px; }
+            .hero p { font-size: 16px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="top">
+        <a href="#top" class="logo-link">
+            <img src="logo.png" alt="Logo" class="logo-img">
+        </a>
+        <nav><a href="#uslugi">Usługi</a><a href="#faq">FAQ</a><a href="#kontakt">Kontakt</a><a href="#o-nas">O nas</a></nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Firma elektryczna EPA s.c.</h1>
+            <div class="company-type">Spółka cywilna</div>
+            <p>Profesjonalny zespół elektryków z Katowic.<br>Kompleksowe usługi elektryczne. Pogotowie weekendowe.</p>
+        </div>
+    </section>
+
+    <!-- Sekcja 1: Usługi -->
+    <h2 class="section-title" id="uslugi">Zakres usług elektrycznych</h2>
+    <section class="services-portal">
+        <div class="services-grid">
+            <div class="service-box">
+                <h3>Pogotowie elektryczne</h3>
+                <p>Brak prądu, wyleciał bezpiecznik lub różnicówka? Zwarcie lub iskrzące gniazdko? Czujesz zapach spalenizny? Rozwiążemy ten problem!</p>
+                <a href="#kontakt">POMOC →</a>
+            </div>
+            
+            <div class="service-box">
+                <h3>Usługi elektryczne</h3>
+                <p>Podłączanie płyt indukcyjne, kuchenek elektrycznych. Montaż i przeróbka oświetlenia. Instalacji oświetlenia świątecznego.</p>
+                <a href="#kontakt">ZAMÓW →</a>
+            </div>
+            
+            <div class="service-box">
+                <h3>Pomiary elektryczne</h3>
+                <p>Jeżeli nie masz aktualnego protokołu, nie wiesz kiedy wykonano poprzednią kontrolę albo od pomiarów minęło kilka lat, warto zweryfikować termin kolejnego badania.</p>
+                <a href="#kontakt">WYCENA →</a>
+            </div>
+            
+            <div class="service-box">
+                <h3>Wymiana instalacji</h3>
+                <p>Kompleksowa modernizacja i wymiana przewodów w mieszkaniach oraz domach.</p>
+                <a href="#kontakt">SPRAWDŹ →</a>
+            </div>
+
+            <div class="service-box">
+                <h3>Przeglądy elektryczne</h3>
+                <p>Obowiązkowe okresowe kontrole 5-letnie stanu technicznego instalacji.</p>
+                <a href="#kontakt">UMÓW →</a>
+            </div>
+
+            <div class="service-box">
+                <h3>Projekty instalacji elektrycznej</h3>
+                <p>Profesjonalne plany rozwiązań zasilania dla nowych i modernizowanych obiektów.</p>
+                <a href="#kontakt">ZOBACZ →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja 2: FAQ -->
+    <h2 class="section-title" id="faq">Często zadawane pytania (FAQ)</h2>
+    <section class="faq">
+        <div class="faq-container">
+            <div class="faq-item"><h3>Jaki jest cennik usług?</h3><p>Pocztą elektroniczną czy przez telefon wycena nie jest możliwa. Tą wykonujemy u Kilenta. Isteniej możliwość negocjacji ceny końcowej.</p></div>
+            <div class="faq-item"><h3>Jak szybko dojeżdżacie w przypadku awarii?</h3><p>Czas dojazdu na terenie Katowic wynosi zazwyczaj od kilkudziesięciu minut do maksymalnie 2 godzin. Czas dojazdu przekazywany jest Klientowi podaczas rozmowy, gdyż zależy od wielu czynników, jak korki lub warunki atmosferyczne.</p></div>
+            <div class="faq-item"><h3>Czy wystawiacie oficjalne protokoły?</h3><p>Tak. Posiadamy pełne uprawnienia SAP E (eksploatacja) i D (dozór). Nasze protokoły są akceptowane przez ubezpieczalnie i Tauron.</p></div>
+            <div class="faq-item"><h3>Czy podłączacie płyty indukcyjne z wpisem do gwarancji?</h3><p>Tak, sprawdzamy instalację, podłączamy urządzenie i, o ile są spełnione są wymagania, podbijamy pieczątkę wymaganą przez producenta. Podłączamy równieżinne urządzenia AGD.</p></div>
+        </div>
+    </section>
+
+    <!-- Sekcja 3: Kontakt -->
+    <section class="contact-portal" id="kontakt">
+        <div class="contact-grid">
+            <div class="contact-details">
+                <h2>Kontakt</h2>
+                <div class="info-card">
+                    <p><strong>EPA s.c. Elektryk Katowice</strong></p>
+                    <p>📍 Śląsk i okolice</p>
+                    <p>📞 Tel: <a href="tel:+48123456789">+48 123 456 789</a></p>
+                    <p>✉️ E-mail: kontakt@epa-elektryk.pl</p>
+                </div>
+            </div>
+            <!-- Zmodyfikowany formularz z obsługą czyszczenia pól (this.reset()) po zatwierdzeniu -->
+            <form class="contact-form" action="#" method="POST" onsubmit="alert('Wysłano!'); this.reset(); return false;">
+                <div class="form-group"><label>Twój adres E-mail *</label><input type="email" required></div>
+                <div class="form-group"><label>Numer telefonu</label><input type="tel"></div>
+                <div class="form-group"><label>Opis zlecenia</label><textarea id="opis"></textarea></div>
+                <button type="submit" class="form-btn">Wyślij zgłoszenie</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sekcja 4: O nas -->
+    <h2 class="section-title" id="o-nas">O nas – Tradycja i Nowoczesność</h2>
+    <section class="about">
+        <span class="about-line">Jesteśmy rodzinną firmą z Katowic, którą tworzymy we dwóch – syn i ojciec.</span>
