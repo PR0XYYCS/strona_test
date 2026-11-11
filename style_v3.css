@@ -153,3 +153,12 @@ footer { background-color: #111; color: #777; text-align: center; padding: 25px;
   .process-grid { grid-template-columns: 1fr; }
   .hero h1 { font-size: 28px; }
 }
+/* ===== Mobile FAQ accordion ===== */
+@media (max-width: 768px) {
+  .faq-item { padding: 0; overflow: hidden; }
+  .faq-item h3 { margin: 0; padding: 16px 48px 16px 18px; position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+  .faq-item h3::after { content: '+'; position: absolute; right: 18px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 400; color: var(--brand-red); transition: transform .3s ease; }
+  .faq-item.open h3::after { transform: translateY(-50%) rotate(45deg); }
+  .faq-item p { max-height: 0; padding: 0 18px; opacity: 0; transition: max-height .35s ease, opacity .25s ease, padding .35s ease; }
+  .faq-item.open p { max-height: 600px; padding: 0 18px 18px; opacity: 1; }
+}
