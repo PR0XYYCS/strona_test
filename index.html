@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EPA s.c. Elektryk Katowice - Pogotowie i Usługi Elektryczne</title>
-    <link rel="stylesheet" href="style_v3.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header id="top">
@@ -144,6 +144,14 @@ Projekt jest niezbędny zarówno podczas budowy nowego domu, jak i w trakcie gen
             if (!mq.matches) { hdr.classList.remove('compact'); return; }
             if (y > 120) hdr.classList.add('compact'); else if (y < 40) hdr.classList.remove('compact');
         }
+        // mobile: FAQ answers open/close on tap
+        document.querySelectorAll('.faq-item h3').forEach(function (h) {
+            h.setAttribute('role', 'button'); h.setAttribute('tabindex', '0');
+            function t() { if (!mq.matches) return; var it = h.parentElement, o = it.classList.toggle('open'); h.setAttribute('aria-expanded', o); }
+            h.addEventListener('click', t);
+            h.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); t(); } });
+        });
+
         addEventListener('scroll', compact, { passive: true }); addEventListener('resize', compact); compact();
 
         // start the process wire when it scrolls into view
